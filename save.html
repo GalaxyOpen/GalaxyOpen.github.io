@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2nd_homework</title>
+    <title>회원가입페이지</title>
 
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <script src="../js/bootstrap.bundle.min.js"></script>
@@ -26,17 +26,18 @@
     main {
         text-align: center;
         font-size: 50px;
-        
+
         border: 2px solid black;
     }
 
     body {
-        background-image: url(../images/로그인);
+        background-image: url(../images/로그인.jpg);
         background-repeat: no-repeat;
         background-position: center;
-        width: 45%;
+        background-size: cover;
+        width: 30%;
         color: rgb(71, 52, 138);
-       
+
     }
 
     input {
@@ -144,33 +145,34 @@
             1. 계정을 쓰고 도메인은 select로 선택 
             2. select 항목은 직접입력, 네이버, 다음, 지메일 -->
 
-<form class="row sm-2">
-    <div class="col-2">
-        <laber for="memberEmail" class="col-sm-2 col-form-label">이메일:</laber>
+
+<div class="container">
+    <div class="item">
+        <label for="memberEmail" class="">이메일:</label>
     </div>
-    <div class="col">
-        <div class="row">
-            <div class="col-auto">
-                <input type="text" id="memberEmail" class="form form-control">
+    <form class="row">
+        <div class="row row-11">
+            <div class="row auto">
+                <div class="col-3">
+                    <input type="text" id="memberEmail" class="form form-control">
+                </div>
+                @
+                <div class="col-5">
+                    <input type="text" id="email_domain" class="form form-control">
+                </div>
+                <div class="col-3">
+                    <select id="email_domain_select" onchange="domain_select()" class="form form-control">
+                        <option value="">직접입력</option>
+                        <option value="naver.com">네이버</option>
+                        <option value="gmail.com">지메일</option>
+                        <option value="daum.net">한메일</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-auto">
-                <div class="input-group-text">@</div>
-            </div>
-            <div class="col-auto">
-                <input type="text" id="email_domain" class="form form-control">
-            </div>
-            <div class="col-auto">
-                <select id="email_domain_select" onchange="domain_select()" class="form form-control">
-                    <option value="" >직접입력</option>
-                    <option value="naver.com">네이버</option>
-                    <option value="gmail.com">지메일</option>
-                    <option value="daum.net">한메일</option>
-                    <h6></h6>
-                </select>
-            </div>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
+</div>
+
 <!--    7. 성별(memberGender)
             1. radio를 이용하여 남, 녀 선택 -->
 <!-- radio 사용 시 선택항목들의 name 같아야 함. -->
@@ -192,133 +194,139 @@
 <!--   8. 주소(memberAddress)
             1. 다음 우편번호 api 적용 -->
 
-<form class="row sm-2">
-    <div class="col-2">
-        <laber for="memberAddress" class="col-sm-2 col-form-label">주소:</laber>
+
+<div class="container">
+    <div class="item">
+        <label for="memberAddress" class="col-sm-2 col-form-label">주소:</label>
     </div>
-    <div class="col">
-        <div class="row">
-            <div class="col-auto">
-                <input type="text" id="sample6_postcode" placeholder="우편번호" class="form form-control">
+
+    <form class="row sm-2">
+        <div class="col">
+            <div class="row">
+                <div class="col-auto">
+                    <input type="text" id="sample6_postcode" placeholder="우편번호" class="form form-control">
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="sample6_address" placeholder="주소" class="form form-control"><br>
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="sample6_detailAddress" placeholder="상세주소" class="form form-control">
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form form-control">
+                </div>
+                <div class="col-auto">
+                    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"
+                        class="form form-control"><br>
+                </div>
+
+                </head>
             </div>
-            <div class="col-auto">
-            <input type="text" id="sample6_address" placeholder="주소" class="form form-control"><br>
-            </div>
-            <div class="col-auto">
-            <input type="text" id="sample6_detailAddress" placeholder="상세주소" class="form form-control">
-            </div>
-            <div class="col-auto">
-            <input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form form-control">
-            </div>
-            <div class="col-auto">
-            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="form form-control"><br>
-            </div>
-           
-            </head>
         </div>
+    </form>
+</div>
+
+<body>
+    <div class="container">
+
+        <button class="btn btn-dark">제출</button>
+
     </div>
+</body>
+<script>
+    const email = document.getElementById("memberUserName");
+    email.addEventListener("blur", function () { // onblur라고 쓰지 않는다.
+        const exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{5,10}$/
+        const emailResult = document.getElementById("email-result")
+        if (email.value.match(exp)) { // console.log("정규식 만족")
+            emailResult.innerHTML = "조건을 충족합니다.";
+            emailResult.style.color = "green";
 
-        <body>
-            <div class="container">
+        } else { // console.log("정규식 만족하지 않음.")
+            emailResult.innerHTML = "소문자와 숫자 및 일부 특수문자(-_) 조합하여 5~10자리 이내로 입력해주세요.";
+            emailResult.style.color = "red";
+        }
+    });
 
-                <button class="btn btn-dark">제출</button>
+    const password = document.getElementById("memberPassword");
+    password.addEventListener("blur", function () {
+        const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{6,18}$/
+        const passwordResult = document.getElementById("memberPassword1");
+        if (password.value.match(exp)) {
+            passwordResult.innerHTML = "조건을 충족합니다.";
+            passwordResult.style.color = "green";
+        } else if (password.length == 0) {
+            passwordResult.innerHTML = "필수 입력 사항입니다.";
+            passwordResult.style.color = "red";
+        } else {
+            passwordResult.innerHTML = "영어 대소문자와 숫자, 특수문자(!#$-_)는 필수(6~18글자)입니다.";
+            passwordResult.style.color = "red";
+        }
 
-            </div>
-        </body>
-        <script>
-            const email = document.getElementById("memberUserName");
-            email.addEventListener("blur", function () { // onblur라고 쓰지 않는다.
-                const exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{5,10}$/
-                const emailResult = document.getElementById("email-result")
-                if (email.value.match(exp)) { // console.log("정규식 만족")
-                    emailResult.innerHTML = "조건을 충족합니다.";
-                    emailResult.style.color = "green";
+    });
+    // 3. 비밀번호확인(passwordConfirm)
+    // 1. 비밀번호 항목에서 입력한 값과 일치하면 일치, 일치하지 않으면 일치하지 않는다 라는 메시지를 입력칸 아래에 빨간색으로 출력 -->
 
-                } else { // console.log("정규식 만족하지 않음.")
-                    emailResult.innerHTML = "소문자와 숫자 및 일부 특수문자(-_) 조합하여 5~10자리 이내로 입력해주세요.";
-                    emailResult.style.color = "red";
-                }
-            });
+    const passwordcheck = document.getElementById("passwordConfirm");
+    passwordcheck.addEventListener("blur", function () {
+        const passwordconfirm = document.getElementById("passwordCheck");
+        if (password == passwordconfirm) {
+            passwordconfirm.innerHTML = "일치합니다";
+            passwordconfirm.style.color = "green";
+        } else {
+            passwordconfirm.innerHTML = "비밀번호를 잘 생각해보세요";
+            passwordconfirm.style.color = "red";
+        }
+    });
 
-            const password = document.getElementById("memberPassword");
-            password.addEventListener("blur", function () {
-                const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{6,18}$/
-                const passwordResult = document.getElementById("memberPassword1");
-                if (password.value.match(exp)) {
-                    passwordResult.innerHTML = "조건을 충족합니다.";
-                    passwordResult.style.color = "green";
-                } else if (password.length == 0) {
-                    passwordResult.innerHTML = "필수 입력 사항입니다.";
-                    passwordResult.style.color = "red";
-                } else {
-                    passwordResult.innerHTML = "영어 대소문자와 숫자, 특수문자(!#$-_)는 필수(6~18글자)입니다.";
-                    passwordResult.style.color = "red";
-                }
+    //    4. 이름(memberName)
+    //    1. 필수입력 
 
-            });
-            // 3. 비밀번호확인(passwordConfirm)
-            // 1. 비밀번호 항목에서 입력한 값과 일치하면 일치, 일치하지 않으면 일치하지 않는다 라는 메시지를 입력칸 아래에 빨간색으로 출력 -->
+    const name = document.getElementById("memberName");
+    name.addEventListener("blur", function () {
+        const namecheck = document.getElementById("memberNameCheck")
+        if (!name.value.length == 0) {
+            namecheck.innerHTML = "이름이 입력되었읍니다.";
+            namecheck.style.color = "green";
 
-            const passwordcheck = document.getElementById("passwordConfirm");
-            passwordcheck.addEventListener("blur", function () {
-                const passwordconfirm = document.getElementById("passwordCheck");
-                if (password == passwordconfirm) {
-                    passwordconfirm.innerHTML = "일치합니다";
-                    passwordconfirm.style.color = "green";
-                } else {
-                    passwordconfirm.innerHTML = "비밀번호를 잘 생각해보세요";
-                    passwordconfirm.style.color = "red";
-                }
-            });
+        } else {
+            namecheck.innerHTML = "필수 입력입니다.";
+            namecheck.style.color = "red";
 
-            //    4. 이름(memberName)
-            //    1. 필수입력 
+        }
 
-            const name = document.getElementById("memberName");
-            name.addEventListener("blur", function () {
-                const namecheck = document.getElementById("memberNameCheck")
-                if (!name.value.length == 0) {
-                    namecheck.innerHTML = "이름이 입력되었읍니다.";
-                    namecheck.style.color = "green";
+    });
 
-                } else {
-                    namecheck.innerHTML = "필수 입력입니다.";
-                    namecheck.style.color = "red";
+    //5. 전화번호(memberMobile)
+    //1. 통신사를 선택하는 select 있음. 
+    //1. SKT, KT, LG, MVNO 선택할 수 있음. 
+    //2. 전화번호는 010-0000-0000으로 입력하도록 함. 만족하지 않으면 빨간색으로 형식에 맞지 않는다고 출력
 
-                }
+    const mobile = document.getElementById("memberMobile");
+    mobile.addEventListener("blur", function () {
+        const mobilecheck = document.getElementById("memberMobileCheck");
+        const exp = /^\d{3}-\d{4}-\d{4}$/
+        //정규식 만족 여부 체크 
+        if (mobile.value.match(exp)) {
+            mobilecheck.innerHTML = "번호가 입력되었습니다.";
+            mobilecheck.style.color = "green";
+        } else {
+            mobilecheck.innerHTML = "재입력 요청";
+            mobilecheck.style.color = "red";
+        }
+    })
 
-            });
-
-            //5. 전화번호(memberMobile)
-            //1. 통신사를 선택하는 select 있음. 
-            //1. SKT, KT, LG, MVNO 선택할 수 있음. 
-            //2. 전화번호는 010-0000-0000으로 입력하도록 함. 만족하지 않으면 빨간색으로 형식에 맞지 않는다고 출력
-
-            const mobile = document.getElementById("memberMobile");
-            mobile.addEventListener("blur", function () {
-                const mobilecheck = document.getElementById("memberMobileCheck");
-                const exp = /^\d{3}-\d{4}-\d{4}$/
-                //정규식 만족 여부 체크 
-                if (mobile.value.match(exp)) {
-                    mobilecheck.innerHTML = "번호가 입력되었습니다.";
-                    mobilecheck.style.color = "green";
-                } else {
-                    mobilecheck.innerHTML = "재입력 요청";
-                    mobilecheck.style.color = "red";
-                }
-            })
-
-            //6. 이메일(memberEmail)
-            //1. 계정을 쓰고 도메인은 select로 선택 
-            //2. select 항목은 직접입력, 네이버, 다음, 지메일 -->
-            const domain_select = () => {
-                const domain = document.getElementById("email_domain_select");
-                const domainInput = document.getElementById("email_domain");
-                domainInput.value = domain.value;
-            }
+    //6. 이메일(memberEmail)
+    //1. 계정을 쓰고 도메인은 select로 선택 
+    //2. select 항목은 직접입력, 네이버, 다음, 지메일 -->
+    const domain_select = () => {
+        const domain = document.getElementById("email_domain_select");
+        const domainInput = document.getElementById("email_domain");
+        domainInput.value = domain.value;
+    }
 
 
 
-        </script>
+</script>
 
 </html>
