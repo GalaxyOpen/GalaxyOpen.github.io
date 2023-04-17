@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/74e2b43d2d.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: auto;
+        background-color: grey;
+        color: white
+    }
+
+    .top {
+        margin: 0 auto;
+    }
+
+    .left {
+        line-height: 700px;
+        text-align: center;
+        width: 50%;
+        float: left;
+        background: black;
+        color: white;
+        font-size: xx-large;
+    }
+
+    .right {
+        line-height: 700px;
+        text-align: center;
+        width: 50%;
+        float: right;
+        background: white;
+        color: black;
+        font-size: xx-large;
+    }
+
+    .fixed-bottom {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="top">
+                <button class="btn btn-dark">Home</button>
+                <button class="btn btn-dark" onclick="goAbout()">About</button>
+                <button class="btn btn-dark" onclick="goSkills()">Skills</button>
+                <button class="btn btn-dark" onclick="goMysite()">My site</button>
+                <button class="btn btn-dark" onclick="goContact()">Contact</button>
+
+            </div>
+        </div>
+        <div>
+            <div class="left">
+                Keehong Lee
+            </div>
+            <div class="right">
+                ICIA
+            </div>
+        </div>
+
+        <div class="fixed-bottom">
+            돌아온다
+        </div>
+    </div>
+    <!-- <div class="fa-3x">
+        <i class="fa-solid fa-bug fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i>
+    </div>
+    </div> -->
+</body>
+<script>
+    const goAbout = () => {
+        location.href = "about.html";
+    }
+    const goSkills = () => {
+        location.href = "skills.html";
+    }
+    const goMysite = () => {
+        location.href = "mysite.html";
+    }
+    const goContact = () => {
+        location.href = "contact.html";
+    }
+</script>
+
+</html>

@@ -13,33 +13,86 @@
 <style>
     .container {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto auto;
     }
 
     .button {
-        background-color: dodgerblue;
+        justify-content: center;
+        background-color: rgb(165, 206, 247);
         border: 1px solid white;
         width: 140px;
         height: 100px;
         text-align: center;
     }
-    .footer{
-        
+
+    .nav {
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    #card {
+        justify-content: center;
+        text-align: center;
     }
 </style>
 
 <body>
-    
     <div class="container text center">
-        <button class="btn btn-dark">Ilbodripnet</button>
-        <button class="btn btn-dark">개드립</button>
-        <button class="btn btn-dark">유저게시판</button>
-        <button class="btn btn-dark">읽을거리판</button>
-        <button class="btn btn-dark">커뮤니티</button>
-        <button class="btn btn-dark">게임 판</button>
-        <button class="btn btn-dark">놀이터</button>
-        <button class="btn btn-dark">기타</button>
+        <div class="sticky-top">
+            <button class="btn btn-dark">드립</button>
+            <button class="btn btn-dark">게시판</button>
+            <button class="btn btn-dark">읽을거리판</button>
+            <button class="btn btn-dark">커뮤니티</button>
+            <button class="btn btn-dark">게임 판</button>
+            <button class="btn btn-dark">놀이터</button>
+            <button class="btn btn-dark">기타</button>
+        </div>
+    </div>
+    <div class=container>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../images/엄근진.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">주갤명언1</h5>
+                        <p class="card-text">위험을 감수하지 않으면 실패는 하지 않지만, 성공도 없다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../images/역병의사.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">주갤명언2</h5>
+                        <p class="card-text">승자 한명당 패자는 열 명이고 모두가 승자가 되려 한다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../images/웃는개.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">주갤명언3</h5>
+                        <p class="card-text">게으름을 피우면 당장 확실한 보상을 받게 된다. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../images/등장.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">주갤명언4</h5>
+                        <p class="card-text">개취급 받기 싫다면 개처럼 일해선 안된다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
+<script>
+
+</script>
 
 </html>
