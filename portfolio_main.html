@@ -11,71 +11,66 @@
     <script src="https://kit.fontawesome.com/74e2b43d2d.js" crossorigin="anonymous"></script>
 </head>
 <style>
-    .container {
-        display: grid;
-        grid-template-columns: auto;
-        background-color: grey;
-        color: white
-    }
 
-    .top {
+    .container_top {
+        line-height: 100px;
+        background-color: grey;
+        text-align: center;
         margin: 0 auto;
     }
 
-    .left {
-        line-height: 700px;
+    .container_left {
+        line-height: 384px;
         text-align: center;
-        width: 50%;
+        width: 100%;
         float: left;
         background: black;
         color: white;
         font-size: xx-large;
     }
 
-    .right {
-        line-height: 700px;
+    .container_right {
+        line-height: 384px;
         text-align: center;
-        width: 50%;
+        width: 100%;
         float: right;
         background: white;
         color: black;
         font-size: xx-large;
     }
 
-    .fixed-bottom {
+    .container_bottom {
         text-align: right;
+        background-color: grey;
+        line-height: 100px;
     }
 </style>
 
 <body>
-    <div class="container">
-        <div class="top">
-            <div class="top">
-                <button class="btn btn-dark">Home</button>
-                <button class="btn btn-dark" onclick="goAbout()">About</button>
-                <button class="btn btn-dark" onclick="goSkills()">Skills</button>
-                <button class="btn btn-dark" onclick="goMysite()">My site</button>
-                <button class="btn btn-dark" onclick="goContact()">Contact</button>
+    <div class="container_top">
+        <button class="btn btn-dark">Home</button>
+        <button class="btn btn-dark" onclick="goAbout()">About</button>
+        <button class="btn btn-dark" onclick="goSkills()">Skills</button>
+        <button class="btn btn-dark" onclick="goMysite()">My site</button>
+        <button class="btn btn-dark" onclick="goContact()">Contact</button>
+    </div>
 
-            </div>
+    <div class="container_left">
+        <div class="fa-3x">
+            <i class="fa-solid fa-desktop fa-beat-fade"
+                style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i>
+            Keehong Lee
+    </div>
+        <div class="container_right">
+            From. ICIA 2023.02.21
+            <i class="fa-solid fa-upload fa-beat-fade"
+            style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i>
         </div>
-        <div>
-            <div class="left">
-                Keehong Lee
-            </div>
-            <div class="right">
-                ICIA
-            </div>
-        </div>
-
-        <div class="fixed-bottom">
-        
+        <div class="container_bottom">
+            Just do it
         </div>
     </div>
-    <!-- <div class="fa-3x">
-        <i class="fa-solid fa-bug fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i>
-    </div>
-    </div> -->
+
 </body>
 <script>
     const goAbout = () => {
