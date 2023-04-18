@@ -1,0 +1,33 @@
+
+.container_top {
+    line-height: 100px;
+    background-color: grey;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container_left {
+    line-height: 384px;
+    text-align: center;
+    width: 100%;
+    float: left;
+    background: black;
+    color: white;
+    font-size: xx-large;
+}
+
+.container_right {
+    line-height: 384px;
+    text-align: center;
+    width: 100%;
+    float: right;
+    background: white;
+    color: black;
+    font-size: xx-large;
+}
+
+.container_bottom {
+    text-align: right;
+    background-color: grey;
+    line-height: 100px;
+}

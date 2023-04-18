@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="color">클릭</button>
+  <button id="growing">클릭</button>
+  아래 숫자를 클릭하세요.
+
+  <div id="digit">
+    <div id="stripe">0123456789</div>
+  </div>
+
+  <script src="script.js"></script>
+  <style>
+    #digit {
+      width: .5em;
+      overflow: hidden;
+      font: 32px monospace;
+      cursor: pointer;
+    }
+
+    #stripe {
+      display: inline-block
+    }
+
+    #stripe.animate {
+      transform: translate(-90%);
+      transition-property: transform;
+      transition-duration: 9s;
+      transition-timing-function: linear;
+    }
+
+    .animated {
+      transition-property: background-color;
+      transition-duration: 3s;
+    }
+
+    #color {
+      transition-property: background-color;
+      transition-duration: 3s;
+    }
+
+    #growing {
+      transition: font-size 3s, color 2s;
+    }
+  </style>
+
+  <script>
+    color.onclick = function () {
+      this.style.backgroundColor = 'red';
+    };
+
+    growing.onclick = function () {
+      this.style.fontSize = '36px';
+      this.style.color = 'red';
+    };
+
+    stripe.onclick = function () {
+      let sec = new Date().getSeconds() % 10;
+      stripe.style.transitionDelay = '-' + sec + 's';
+      stripe.classList.add('animate');
+    };
+  </script>
+  아래 숫자를 클릭하세요.
+  <div id="digit">
+    <div id="stripe">0123456789</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
